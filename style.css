@@ -418,3 +418,53 @@ footer {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent);
 }
+/* ---------- JAVASCRIPT ANIMATIONS ---------- */
+
+.section,
+.quote-section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s ease;
+}
+
+.section.visible,
+.quote-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- CURSOR GLOW ---------- */
+
+.cursor-glow {
+  position: fixed;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: rgba(255, 77, 46, 0.08);
+  filter: blur(45px);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  transition:
+    left 0.12s ease,
+    top 0.12s ease;
+}
+
+/* Keep content above the glow */
+
+.navbar,
+main,
+footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 800px) {
+  .cursor-glow {
+    display: none;
+  }
+}
